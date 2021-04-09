@@ -1,0 +1,27 @@
+version: 2.1
+
+executors:
+  linux:
+    machine:
+      image: ubuntu-1604:202007-01
+  macos:
+    macos:
+      xcode: 12.4
+
+jobs:
+  build:
+    parameters:
+      os:
+        type: executor
+    executor: << parameters.os >>
+    steps:
+      - checkout
+      - run: cargo test
+
+workflows:
+  all-tests:
+    jobs:
+      - build:
+          matrix:
+            parameters:
+              os: [linux, macos]
