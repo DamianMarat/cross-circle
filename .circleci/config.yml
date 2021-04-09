@@ -18,6 +18,7 @@ jobs:
       - checkout
       - run: cargo test
 
+
 workflows:
   all-tests:
     jobs:
