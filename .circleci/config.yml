@@ -19,3 +19,4 @@ workflows:
   all-tests:
     jobs:
       - build-macos
+      - build-ubuntu
